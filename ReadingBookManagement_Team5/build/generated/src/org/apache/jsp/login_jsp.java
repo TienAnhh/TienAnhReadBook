@@ -50,20 +50,33 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\n");
       out.write("        <link rel=\"canonical\" href=\"https://getbootstrap.com/docs/4.0/examples/sign-in/\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"style.css\">\n");
-      out.write("         <!-- Bootstrap core CSS -->\n");
-      out.write("    <link href=\"../../dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <!-- Bootstrap core CSS -->\n");
+      out.write("        <link href=\"../../dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n");
       out.write("\n");
-      out.write("    <!-- Custom styles for this template -->\n");
-      out.write("    </head>    \n");
-      out.write("    <body class=\"text-center\">\n");
+      out.write("        <!-- Custom styles for this template -->\n");
+      out.write("        ");
+
+            if (request.getAttribute("error") != null) {
+        
+      out.write("\n");
+      out.write("    <h2 style=\"color: red\">");
+      out.print( request.getAttribute("error"));
+      out.write("</h2>\n");
+      out.write("    ");
+
+        }
+    
+      out.write("\n");
+      out.write("</head>    \n");
+      out.write("<body class=\"text-center\">\n");
       out.write("    <form action=\"login\" method=\"GET\"\n");
-      out.write("        class=\"form-signin\">\n");
+      out.write("          class=\"form-signin\">\n");
       out.write("        <div class=\"topnav\">\n");
       out.write("            <a class=\"btn btn-dark\" href=\"home.jsp\">HOME</a>\n");
       out.write("            <div class=\"topnav-right\">\n");
-      out.write("              <a href=\"login.jsp\">LOGIN</a>            \n");
+      out.write("                <a href=\"login.jsp\">LOGIN</a>            \n");
       out.write("            </div>\n");
-      out.write("          </div>\n");
+      out.write("        </div>\n");
       out.write("        <label for=\"inputEmail\" >Username:</label>\n");
       out.write("        <br>\n");
       out.write("        <input type=\"text\" name=\"userName\" id=\"inputUsername\"  placeholder=\"Username\" required autofocus>\n");
@@ -73,8 +86,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <input type=\"password\" name=\"password\" id=\"inputPassword\" placeholder=\"Password\" required>\n");
       out.write("        <br>\n");
       out.write("        <button class=\"btn btn-success\" type=\"submit\">Sign in</button>\n");
-      out.write("       \n");
-      out.write("        \n");
+      out.write("        <div>\n");
+      out.write("            <a href=\"adminController.jsp\" style=\"color: blue; text-align: center;\">----Login with administrator----</a>\n");
+      out.write("        </div>\n");
+      out.write("\n");
       out.write("    </form>\n");
       out.write("</body>\n");
       out.write("</html>");

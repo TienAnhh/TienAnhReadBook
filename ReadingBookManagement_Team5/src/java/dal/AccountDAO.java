@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import model.account;
+import model.book;
 
 
 /**
@@ -45,7 +46,7 @@ public class AccountDAO {
     public static boolean checkLogin(String userName, String password) throws Exception {
         boolean isValid = false;
         try {
-            String query = "select * from account where username = ? and password = ?";
+            String query = "select * from Account where username = ? and password = ?";
             con = new DBContext().getConnection();
             ps = con.prepareStatement(query);
             ps.setString(1, userName);
@@ -84,6 +85,21 @@ public class AccountDAO {
         return isValid;
     }
     
+    public List<book> listBookInfo() {
+        List<book> list = new ArrayList<>();
+        String query = "SELECT * FROM Book";
+        try {
+            con = new DBContext().getConnection();
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new book(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+            }
+        } catch (Exception e) {
+            
+        }
+        return list;
+    }
     
     public static void main(String[] args) throws Exception {
         AccountDAO ad = new AccountDAO();

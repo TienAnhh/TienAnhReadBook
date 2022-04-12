@@ -20,9 +20,9 @@
             <a href="listbook.jsp">List Books</a>
             <a href="bookcase.jsp">Your BookCase</a>
             <a href="manager.jsp">Product Management</a> 
-            <a href="list.jsp">Logout</a>
+            <a href="logout">Logout</a>
             <div class="topnav-right">
-             <a style="text-align: right; margin-top: 25px; margin-right: 5px; color: white"><%String hello = (String) session.getAttribute("userName");%> Hello: <%out.print(hello);%></a>          
+             <a style="text-align: right; margin-top: 0px; margin-right: 5px; color: white"><%String hello = (String) session.getAttribute("userName");%> Hello: <%out.print(hello);%></a>          
             </div>
           </div>
         <h3>Your BookCase has 10 books:</h3>
